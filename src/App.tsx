@@ -15,7 +15,7 @@ const App = () => {
 
         <VerticalPosts />
       </div>
-      <div className="bg-indigo-600 p-9">
+      <div className="bg-indigo-600 p-3 sm:p-4 md:p-6 lg:p-9">
         <div className="w-[94%] md:w-[92%] mx-auto mt-5'">
           <PostsSwiper />
         </div>

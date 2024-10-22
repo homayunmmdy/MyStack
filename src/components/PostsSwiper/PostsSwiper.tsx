@@ -12,12 +12,25 @@ export default () => {
 
   return (
     <>
-    <Swiper spaceBetween={25} slidesPerView={3.5}
+    <Swiper spaceBetween={25} 
     modules={[Autoplay,Navigation, A11y]}
     autoplay={{
       delay: 2500,
       disableOnInteraction: false,
     }}  
+    breakpoints={{
+        // when window width is >= 640px
+        0: {
+          slidesPerView: 1.20,
+        },
+        576: {
+            slidesPerView: 2.5,
+        },
+   
+        992: {
+            slidesPerView: 3.5
+        },
+      }}
       navigation>
       {data?.map((post: PostsCashType) => (
         <SwiperSlide>
