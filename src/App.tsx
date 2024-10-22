@@ -1,4 +1,4 @@
-import { MainSec, Posts } from "./components";
+import { MainSec, Posts, VerticalPosts } from "./components";
 
 const App = () => {
   return (
@@ -10,6 +10,7 @@ const App = () => {
         </div>
         <div className="col-span-12 md:col-span-3"></div>
       </div>
+      <VerticalPosts />
     </div>
   );
 };

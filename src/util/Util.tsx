@@ -1,10 +1,8 @@
-export const getData = ( cash: any, amount: number, loading: JSX.Element) => {
-  const posts = cash;
-  const data = posts?.slice(0, amount);
+import PostsCash from "../cash/PostsCash";
 
-  if (!data) {
-    return loading;
-  }
+export const getData = (amount: number) => {
+  const posts = PostsCash;
+  const data = posts?.slice(0, amount);
 
   return data;
 };

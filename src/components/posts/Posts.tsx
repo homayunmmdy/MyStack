@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
-import PostsCash from "../../cash/PostsCash";
 import { PostsCashType } from "../../types/CashTypes";
 import { getData } from "../../util/Util";
 import PostCard from "./PostCard";
-import PostsSkeleton from "./PostsSkeleton";
 
 const Posts: React.FC = () => {
-  const data = getData(PostsCash, 6, <PostsSkeleton />);
+  const data = getData(6);
 
   return (
     <>
