@@ -17,6 +17,7 @@ const SiteConfig = {
   robots: "index , follow",
   author: "Magnitify Team",
   authorID: "magnitify_Team",
+  loginLink: "/login",
   // Navbar
   nav: [
     {

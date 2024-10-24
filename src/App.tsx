@@ -1,11 +1,11 @@
-import { Header, MainSec, Posts, VerticalPosts } from "./components";
+import { Header2, MainSec, Posts, VerticalPosts } from "./components";
 import PostsSwiper from "./components/PostsSwiper/PostsSwiper";
 
 const App = () => {
   return (
     <>
-    <Header />
-      <div className="w-[94%] md:w-[92%] mx-auto mt-5">
+    <Header2 />
+      <div className="w-[94%] md:w-[92%] mx-auto mt-[80px]">
         <MainSec />
         <div className="grid grid-cols-12 md:gap-9">
           <div className="col-span-12 md:col-span-9">
