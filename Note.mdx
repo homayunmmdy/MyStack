@@ -17,6 +17,21 @@ With `~1.2.3` in `package.json`:
 - ✅ It will update to the latest **patch** version within `1.2.x` (e.g., `1.2.9`).  
 - ❌ It will **not** jump to `1.3.0` (a **minor** update).  
 
-So, if `1.2.9` exists, it installs that—not `1.3.0`.  
+So, if `1.2.9` exists, it installs that not `1.3.0`.  
 
 Short: `~` = "only patch updates, no minor/major." 🔄
+
+In `package.json`, the caret (`^`) before a version number means:  
+
+**"Install this version or compatible minor/patch updates (but no breaking major changes)."**  
+
+### Example: `^1.2.3` allows:  
+- ✅ `1.2.3` (exact)  
+- ✅ `1.2.9` (latest patch)  
+- ✅ `1.3.0` (minor update)  
+- ❌ **NOT** `2.0.0` (major update, breaking changes)  
+
+### Short Rule:  
+- `^` = "safe updates (minor & patches, no major)." 🚦  
+
+*(Note: If major version is `0` (e.g., `^0.2.3`), it behaves like `~` only patches, since `0.x` = unstable.)*
