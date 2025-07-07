@@ -54,3 +54,16 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 ```
+
+middleware are functions that intercept route handlers, adding some kind of information
+
+## Public Middleware 
+
+
+When you add `app.use('/public', express.static(__dirname + '/public'))`:
+
+1. Any request starting with `/public` (like `/public/style.css`) will look in your `/public` folder
+2. Express automatically serves the matching file (like `style.css`) from that folder
+3. Your HTML can now use `/public/style.css` and it will work
+
+Result: Your webpage loads CSS/images/JS from the `/public` folder.
