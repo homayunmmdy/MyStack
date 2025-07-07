@@ -57,8 +57,7 @@ app.get("/", function (req, res) {
 
 middleware are functions that intercept route handlers, adding some kind of information
 
-## Public Middleware 
-
+## Public Middleware
 
 When you add `app.use('/public', express.static(__dirname + '/public'))`:
 
@@ -67,3 +66,11 @@ When you add `app.use('/public', express.static(__dirname + '/public'))`:
 3. Your HTML can now use `/public/style.css` and it will work
 
 Result: Your webpage loads CSS/images/JS from the `/public` folder.
+
+## Server JSON by route
+
+```javascript
+app.get("/json", function (req, res) {
+  res.json({ message: "Hello json" });
+});
+```
