@@ -117,7 +117,7 @@ app.get(
 );
 ```
 
-## Get Dynamic Route 
+## Get Dynamic Route
 
 ```javascript
 app.get("/:word/echo", function (req, res) {
@@ -135,11 +135,32 @@ app.get("/:word/echo", function (req, res) {
 It’s used to capture parts of the URL (like IDs or names).
 
 here is another example to understand this better when you add : this
- would grabs everything you put their now it's get user id
+would grabs everything you put their now it's get user id
 
 ```javascript
 app.get("/user/:id", function (req, res) {
   const userID = req.params.id;
   res.json({ userID: userID });
+});
+```
+
+## Getting data from query
+
+we can get the data with **req.query** after that we add dot and name of your query like this **
+req.query.first**
+for example this route
+
+```
+/name?first=Homayoun&last=Mohammadi
+```
+
+will get like this
+
+```javascript
+app.get("/name", function (req, res) {
+  const firstName = req.query.first;
+  const lastName = req.query.last;
+
+  res.json({ name: `${firstName} ${lastName}` });
 });
 ```
