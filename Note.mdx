@@ -226,3 +226,20 @@ const personSchema = new mongoose.Schema({
 // Create the Person model from the schema
 Person = mongoose.model("Person", personSchema);
 ```
+
+## Create person from schema
+
+```javascript
+const createAndSavePerson = (done) => {
+  const person = new Person({
+    name: "John Doe",
+    age: 25,
+    favoriteFoods: ["pizza", "burgers"],
+  });
+
+  person.save(function (err, data) {
+    if (err) return err;
+    done(null, data);
+  });
+};
+```
