@@ -116,3 +116,30 @@ app.get(
   }
 );
 ```
+
+## Get Dynamic Route 
+
+```javascript
+app.get("/:word/echo", function (req, res) {
+  const word = req.params.word;
+  res.json({ echo: word });
+});
+```
+
+`req.params.word` grabs the value from a dynamic URL segment.
+
+- **Route Example:** `GET /:word/echo`
+- **If URL is** `/hello/echo` → `req.params.word = "hello"`
+- **Response:** `{ echo: "hello" }`
+
+It’s used to capture parts of the URL (like IDs or names).
+
+here is another example to understand this better when you add : this
+ would grabs everything you put their now it's get user id
+
+```javascript
+app.get("/user/:id", function (req, res) {
+  const userID = req.params.id;
+  res.json({ userID: userID });
+});
+```

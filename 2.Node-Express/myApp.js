@@ -33,4 +33,10 @@ app.get("/json", function (req, res) {
   res.json({ message: message });
 });
 
+app.get('/:word/echo', function(req , res) {
+  const word = req.params.word;
+  res.json({echo : word})
+})
+
+
 module.exports = app;
