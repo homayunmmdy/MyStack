@@ -1,15 +1,22 @@
-require('dotenv').config();
+require("dotenv").config();
 
-let mongoose = require('mongoose');
+let mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO_URI, { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true 
-})
-  .then(() => console.log('Successfully connected to MongoDB'))
-  .catch(err => console.error('Connection error', err));
-  
-let Person;
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Successfully connected to MongoDB"))
+  .catch((err) => console.error("Connection error", err));
+
+let personSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String],
+});
+
+let Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);

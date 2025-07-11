@@ -165,21 +165,64 @@ app.get("/name", function (req, res) {
 });
 ```
 
-## Body parser 
-middleware in Node.js, particularly within Express.js applications , that simplifies 
+## Body parser
+
+middleware in Node.js, particularly within Express.js applications , that simplifies
 the process of handling data sent in the body of HTTP requests.
 
+## Create post route
 
-## Create post route 
+1. **Body Parser Middleware**:
 
-1. **Body Parser Middleware**: 
    - The `bodyParser.urlencoded()` middleware parses incoming requests with URL-encoded payloads (the standard way HTML forms send data).
    - `extended: false` uses the classic encoding (querystring library).
 
 2. **POST Endpoint**:
+
    - We create a POST handler at the same `/name` path as before.
    - The form data will be available in `req.body` after being parsed by the middleware.
    - We extract `first` and `last` from the request body (these are the input names in the HTML form).
 
 3. **Response**:
    - We respond with a JSON object containing the concatenated first and last name.
+
+## Connect to db
+
+```javascript
+require("dotenv").config();
+
+let mongoose = require("mongoose");
+
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Successfully connected to MongoDB"))
+  .catch((err) => console.error("Connection error", err));
+```
+
+## Schema
+
+a blueprint that outlines the structure and organization of a database.
+here is the code example
+
+```javascript
+let Person;
+
+const personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: Number,
+  },
+  favoriteFoods: {
+    type: [String], // Array of strings
+  },
+});
+
+// Create the Person model from the schema
+Person = mongoose.model("Person", personSchema);
+```
