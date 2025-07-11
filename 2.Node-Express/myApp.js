@@ -1,5 +1,9 @@
 let express = require("express");
+const bodyParser = require('body-parser');  
 let app = express();
+
+// Use body-parser middleware for URL-encoded data
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   console.log(req.method + " " + req.path + " - " + req.ip);
