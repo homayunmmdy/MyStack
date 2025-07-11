@@ -169,3 +169,17 @@ app.get("/name", function (req, res) {
 middleware in Node.js, particularly within Express.js applications , that simplifies 
 the process of handling data sent in the body of HTTP requests.
 
+
+## Create post route 
+
+1. **Body Parser Middleware**: 
+   - The `bodyParser.urlencoded()` middleware parses incoming requests with URL-encoded payloads (the standard way HTML forms send data).
+   - `extended: false` uses the classic encoding (querystring library).
+
+2. **POST Endpoint**:
+   - We create a POST handler at the same `/name` path as before.
+   - The form data will be available in `req.body` after being parsed by the middleware.
+   - We extract `first` and `last` from the request body (these are the input names in the HTML form).
+
+3. **Response**:
+   - We respond with a JSON object containing the concatenated first and last name.
