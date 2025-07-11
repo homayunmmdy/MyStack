@@ -254,3 +254,14 @@ const createManyPeople = (arrayOfPeople, done) => {
   });
 };
 ```
+
+## Searching in schema
+
+```javascript
+const findPeopleByName = (personName, done) => {
+  Person.find({ name: personName }, function (err, peopleFound) {
+    if (err) return done(err);
+    done(null, peopleFound);
+  });
+};
+```
