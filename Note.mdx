@@ -286,3 +286,20 @@ const findPersonById = (personId, done) => {
   });
 };
 ```
+
+## find and edit and save
+```javascript
+const findEditThenSave = (personId, done) => {
+  Person.findById(personId, (err, person) => {
+    if (err) return done(err);
+    if (!person) return done(new Error("No person found"));
+
+    person.favoriteFoods.push("hamburger");
+
+    person.save((err, updatedPerson) => {
+      if (err) return done(err);
+      done(null , updatedPerson)
+    });
+  });
+};
+```
