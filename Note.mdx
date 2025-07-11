@@ -265,3 +265,14 @@ const findPeopleByName = (personName, done) => {
   });
 };
 ```
+
+## Searching for one thing 
+
+```javascript
+const findOneByFood = (food, done) => {
+  Person.findOne({ favoriteFoods: food }, function (err, personFound) {
+    if (err) return done(err);
+    done(null, personFound);
+  });
+};
+```
