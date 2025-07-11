@@ -90,7 +90,7 @@ Middleware is like a **helper function** that runs every time your server gets a
 Middleware takes 3 arguments: (req, res, next).
 It runs code, can modify req/res, and must call next() to proceed.
 
-for example here a middleware 
+for example here a middleware
 This code logs every incoming request to your Express server in the format `"METHOD PATH - IP"` (like `GET /about - ::1`) and then passes control to the next middleware using `next()`. It's a basic request logger for debugging.
 
 ```javascript
@@ -98,4 +98,21 @@ app.use((req, res, next) => {
   console.log(req.method + " " + req.path + " - " + req.ip);
   next();
 });
+```
+
+## middleware chaining
+
+applying multiple middleware function in a sequential order to handle a request
+
+```javascript
+app.get(
+  "/now",
+  (req, res, next) => {
+    req.time = new Date().toString(); // Middleware sets up data
+    next(); // Pass to next function
+  },
+  (req, res) => {
+    res.json({ time: req.time }); // Final handler sends response
+  }
+);
 ```
