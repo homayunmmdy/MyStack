@@ -266,7 +266,7 @@ const findPeopleByName = (personName, done) => {
 };
 ```
 
-## Searching for one thing 
+## Searching for one thing
 
 ```javascript
 const findOneByFood = (food, done) => {
@@ -277,17 +277,19 @@ const findOneByFood = (food, done) => {
 };
 ```
 
-## Search by id 
+## Search by id
+
 ```javascript
 const findPersonById = (personId, done) => {
-  Person.findById(personId,function(err,personFound){
-    if(err) return done(err)
-    done(null,personFound)
+  Person.findById(personId, function (err, personFound) {
+    if (err) return done(err);
+    done(null, personFound);
   });
 };
 ```
 
 ## find and edit and save
+
 ```javascript
 const findEditThenSave = (personId, done) => {
   Person.findById(personId, (err, person) => {
@@ -298,8 +300,26 @@ const findEditThenSave = (personId, done) => {
 
     person.save((err, updatedPerson) => {
       if (err) return done(err);
-      done(null , updatedPerson)
+      done(null, updatedPerson);
     });
   });
+};
+```
+
+## Finding user and update that
+
+```javascript
+const findAndUpdate = (personName, done) => {
+  const ageToSet = 20;
+
+  Person.findOneAndUpdate(
+    { name: personName },
+    { $set: { age: ageToSet } },
+    { new: true },
+    (err, updatedPerson) => {
+      if (err) return done(err);
+      done(null, updatedPerson);
+    }
+  );
 };
 ```
