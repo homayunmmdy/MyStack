@@ -243,3 +243,14 @@ const createAndSavePerson = (done) => {
   });
 };
 ```
+
+## Create Multiple User with schema
+
+```javascript
+const createManyPeople = (arrayOfPeople, done) => {
+  Person.create(arrayOfPeople, function (err, people) {
+    if (err) return done(err);
+    done(null, people);
+  });
+};
+```
