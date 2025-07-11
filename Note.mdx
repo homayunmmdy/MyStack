@@ -323,3 +323,14 @@ const findAndUpdate = (personName, done) => {
   );
 };
 ```
+
+## Remove Person by ID
+
+```javascript
+const removeById = (personId, done) => {
+  Person.findByIdAndRemove(personId, (err, removePerson) => {
+    if (err) return done(err);
+    done(null, removePerson);
+  });
+};
+```
